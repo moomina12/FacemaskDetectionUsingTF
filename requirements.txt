@@ -1,5 +1,5 @@
 tensorflow
-cv2==4.10.0
+cv2==4.9.0
 scikit-learn
 opencv-python-headless
 matplotlib
