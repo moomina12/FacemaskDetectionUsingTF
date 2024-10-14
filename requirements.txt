@@ -1,7 +1,6 @@
 tensorflow
-imutils
 scikit-learn==1.0.2
 opencv-python
 matplotlib
-streamlit==1.39.0
+streamlit
 numpy
