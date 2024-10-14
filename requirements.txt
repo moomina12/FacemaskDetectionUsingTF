@@ -4,7 +4,8 @@ imutils==0.5.4
 #scikit-learn==1.0.2
 scikit-learn
 #opencv-python==4.5.5.64
-opencv-python==4.8
+#opencv-python==4.8.0
+#opencv-python==3.4.11
 matplotlib==3.5.1
 #streamlit==1.39.0
 streamlit
