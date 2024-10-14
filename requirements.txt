@@ -3,5 +3,5 @@ imutils
 scikit-learn
 matplotlib
 streamlit
-opencv-python-headless
+opencv-python
 numpy
