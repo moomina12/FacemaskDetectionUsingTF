@@ -10,7 +10,7 @@ scikit-learn
 #opencv-python-headless
 opencv-python-headless==4.8.0.76
 matplotlib==3.5.1
-#streamlit==1.39.0
-streamlit
+streamlit==1.39.0
+#streamlit
 #numpy==1.21.2
 numpy
