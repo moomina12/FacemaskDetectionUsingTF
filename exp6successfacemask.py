@@ -16,8 +16,8 @@ mask_model = load_model("mask6_detector.model.h5")
 #model = load(open("diabetespredictionRFbmodel.pkl", 'rb'))#normally used code in other apps
 
 # Load OpenCV's pre-trained face detector model
-prototxt_path = r"C:\Users\HP\deploy.prototxt"  # Path to your prototxt file
-weights_path = r"C:\Users\HP\res10_300x300_ssd_iter_140000.caffemodel"  # Path to the caffemodel
+prototxt_path = "deploy.prototxt"  # Path to your prototxt file
+weights_path = "res10_300x300_ssd_iter_140000.caffemodel"  # Path to the caffemodel
 face_net = cv2.dnn.readNet(prototxt_path, weights_path)
 
 # Function to detect faces and predict mask usage
