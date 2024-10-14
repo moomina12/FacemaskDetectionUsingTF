@@ -1,7 +1,7 @@
 tensorflow
 imutils
-scikit-learn==1.0.2
+scikit-learn
 matplotlib
-streamlit==1.39.0
+streamlit
 streamlit
 numpy
