@@ -1,0 +1,12 @@
+tensorflow
+keras
+layers
+ImageDataGenerator
+MobileNetV2
+imutils
+numpy
+matplotlib
+scipy
+opencv-python-headless
+streamlit
+BinaryCrossentropy
