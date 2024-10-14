@@ -78,7 +78,7 @@ run = st.checkbox('Run')
 FRAME_WINDOW = st.image([])
 
 # Start video capture
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
 
 # Check if camera opened successfully
 if not cap.isOpened():
