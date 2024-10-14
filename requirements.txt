@@ -10,5 +10,5 @@ opencv-python-headless
 matplotlib==3.5.1
 #streamlit==1.39.0
 streamlit
-numpy==1.21.2
-#numpy
+#numpy==1.21.2
+numpy
