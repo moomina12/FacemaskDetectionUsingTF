@@ -1,4 +1,5 @@
 tensorflow
+cv2
 scikit-learn
 opencv-python-headless
 matplotlib
