@@ -1,8 +1,11 @@
 tensorflow
 #imutils==0.5.4
-scikit-learn==1.0.2
+imutils
+#scikit-learn==1.0.2
+scikit-learn
 #opencv-python==4.5.5.64
 opencv-python
 matplotlib==3.5.1
-streamlit==1.39.0
+#streamlit==1.39.0
+streamlit
 numpy==1.21.5
