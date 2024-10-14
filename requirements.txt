@@ -6,4 +6,4 @@ numpy
 matplotlib
 scipy
 opencv-python-headless
-streamlit 1.39.0
+streamlit==1.39.0
