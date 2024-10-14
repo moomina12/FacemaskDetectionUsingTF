@@ -1,7 +1,7 @@
 tensorflow
 scikit-learn
 matplotlib
-opencv-python-headless
+cv2
 opencv-python==4.10.0.84
 streamlit
 numpy
