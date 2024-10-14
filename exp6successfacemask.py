@@ -12,8 +12,9 @@ from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 
 # Load the trained mask detection model
-mask_model = load_model("mask6_detector.model.h5")
+#mask_model = load_model("mask6_detector.model.h5")
 #model = load(open("diabetespredictionRFbmodel.pkl", 'rb'))#normally used code in other apps
+mask_model=load(open("mask6_detector.model.h5"",'rb')
 
 # Load OpenCV's pre-trained face detector model
 prototxt_path = "deploy.prototxt"  # Path to your prototxt file
