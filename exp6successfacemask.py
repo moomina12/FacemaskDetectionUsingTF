@@ -6,6 +6,11 @@
 
 import cv2
 import streamlit as st
+import numpy as np
+from keras.model import load_model
+
+#Load the trained mask detection model
+mask_model = load_model("mask6_detector.model.h5",compile=False)
 
 def try_open_webcam():
     cap = cv2.VideoCapture(0)
@@ -34,6 +39,17 @@ else:
         file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
         image = cv2.imdecode(file_bytes, 1)
         st.image(image, channels="BGR", caption="Uploaded Image")
+        # Run prediction
+    prediction = model.predict(image_array)
+
+    # Determine the label
+    if prediction[0][0] > 0.5:
+        label = "Mask"
+    else:
+        label = "No Mask"
+
+    # Display the result
+    st.image(image, channels="BGR", caption=f"Prediction: {label}")
 
 
 
