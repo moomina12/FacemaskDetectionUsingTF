@@ -10,7 +10,7 @@ import numpy as np
 from keras.models import load_model
 
 #Load the trained mask detection model
-mask_model = load_model("mask6_detector.model.h5",compile=False)
+model = load_model("mask6_detector.model.h5",compile=False)
 
 def try_open_webcam():
     cap = cv2.VideoCapture(0)
