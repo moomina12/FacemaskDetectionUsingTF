@@ -37,7 +37,7 @@ else:
     if uploaded_file is not None:
         # Process the uploaded image
         file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
-        image = cv2.imdecode(file_bytes, 1)
+        image1 = cv2.imdecode(file_bytes, 1)
         #st.image(image, channels="BGR", caption="Uploaded Image")
         # Run prediction
     prediction = model.predict(image)
@@ -49,7 +49,7 @@ else:
         label = "No Mask"
 
     # Display the result
-    st.image(image, channels="BGR", caption=f"Prediction: {label}")
+    st.image(image1, channels="BGR", caption=f"Prediction: {label}")
 
 
 
