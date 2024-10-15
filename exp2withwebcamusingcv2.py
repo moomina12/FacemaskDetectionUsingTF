@@ -8,7 +8,7 @@ import numpy as np
 import streamlit as st
 
 # Load your face mask detection model
-model = load_model(r"C:\Users\HP\mask6_detector.model.h5",compile=False)
+model = load_model("mask6_detector.model.h5",compile=False)
 
 # Optionally define image size as per your model's input size
 IMG_SIZE = (224, 224)  # Assuming your model expects 224x224 input images
