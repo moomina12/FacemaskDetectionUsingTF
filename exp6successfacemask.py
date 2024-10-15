@@ -79,45 +79,47 @@ if option == "Webcam":
     run = st.checkbox('Run')
     FRAME_WINDOW = st.image([])
 
-    # Start video capture
-    cap = cv2.VideoCapture(0)
+    if run:
+        # Start video capture
+        cap = cv2.VideoCapture(0)
 
-    # Check if camera opened successfully
-    if not cap.isOpened():
-        #st.error("Could not open video device.")
-    else:
-        while run:
-        # Capture frame-by-frame
-        ret, frame = cap.read()
-        
-        if not ret:
-            st.error("Failed to capture frame from camera. Please check your camera connection.", icon="🚨")
-            break
+        # Check if camera opened successfully
+        if not cap.isOpened():
+            st.error("Could not open video device.")
+        else:
+            while run:
+                # Capture frame-by-frame
+                ret, frame = cap.read()
+                
+                if not ret:
+                    st.error("Failed to capture frame from camera. Please check your camera connection.", icon="🚨")
+                    break
 
-        # Convert the frame from BGR to RGB
-        rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-        
-        # Perform face detection and mask prediction
-        (locs, preds) = detect_and_predict_mask(rgb_frame, face_net, mask_model)
-        
-        # Loop over detected face locations and their corresponding predictions
-        for (box, pred) in zip(locs, preds):
-            (startX, startY, endX, endY) = box
-            (mask, without_mask) = pred
-            
-            # Determine the label and color for display
-            label = "Mask" if mask > without_mask else "No Mask"
-            color = (0, 255, 0) if label == "Mask" else (255, 0, 0)
-            
-            # Display label and confidence on the frame
-            cv2.putText(rgb_frame, f"{label}: {max(mask, without_mask) * 100:.2f}%", 
-                        (startX, startY - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.45, color, 2)
-            cv2.rectangle(rgb_frame, (startX, startY), (endX, endY), color, 2)
-        
-        # Update the image in the Streamlit app
-        FRAME_WINDOW.image(rgb_frame)
+                # Convert the frame from BGR to RGB
+                rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                
+                # Perform face detection and mask prediction
+                (locs, preds) = detect_and_predict_mask(rgb_frame, face_net, mask_model)
+                
+                # Loop over detected face locations and their corresponding predictions
+                for (box, pred) in zip(locs, preds):
+                    (startX, startY, endX, endY) = box
+                    (mask, without_mask) = pred
+                    
+                    # Determine the label and color for display
+                    label = "Mask" if mask > without_mask else "No Mask"
+                    color = (0, 255, 0) if label == "Mask" else (255, 0, 0)
+                    
+                    # Display label and confidence on the frame
+                    cv2.putText(rgb_frame, f"{label}: {max(mask, without_mask) * 100:.2f}%", 
+                                (startX, startY - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.45, color, 2)
+                    cv2.rectangle(rgb_frame, (startX, startY), (endX, endY), color, 2)
+                
+                # Update the image in the Streamlit app
+                FRAME_WINDOW.image(rgb_frame)
 
-    cap.release()
+        cap.release()  # Release the capture when done
+
 else:
     # Image upload functionality
     uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
@@ -149,8 +151,6 @@ else:
         st.image(image_np, caption='Uploaded Image with Predictions', channels='RGB')
 
 st.write("Stopped")
-
-
 
 
 # In[ ]:
