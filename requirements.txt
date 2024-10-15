@@ -14,3 +14,4 @@ streamlit==1.39.0
 #streamlit
 #numpy==1.21.2
 numpy
+os
