@@ -84,7 +84,7 @@ if option == "Webcam":
 
     # Check if camera opened successfully
     if not cap.isOpened():
-        st.error("Could not open video device.")
+        #st.error("Could not open video device.")
     
     while run:
         # Capture frame-by-frame
