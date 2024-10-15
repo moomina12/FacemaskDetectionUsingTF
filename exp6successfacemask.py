@@ -7,7 +7,7 @@
 import cv2
 import streamlit as st
 import numpy as np
-from keras.model import load_model
+from keras.models import load_model
 
 #Load the trained mask detection model
 mask_model = load_model("mask6_detector.model.h5",compile=False)
