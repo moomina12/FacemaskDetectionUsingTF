@@ -38,7 +38,7 @@ else:
         # Process the uploaded image
         file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
         image = cv2.imdecode(file_bytes, 1)
-        st.image(image, channels="BGR", caption="Uploaded Image")
+        #st.image(image, channels="BGR", caption="Uploaded Image")
         # Run prediction
     prediction = model.predict(image)
 
