@@ -12,7 +12,7 @@ model = load_model("mask6_detector.model.h5",compile=False)
 # Optionally define image size as per your model's input size
 IMG_SIZE = (224, 224)  # Assuming your model expects 224x224 input images
 
-def try_open_webcam():
+def try_open_webcam(index=0):
     cv2.VideoCapture(index + cv2.CAP_DSHOW)
     if not cap.isOpened():
         st.warning("No webcam detected. Please upload an image instead.")
