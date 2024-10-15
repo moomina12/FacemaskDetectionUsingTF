@@ -6,6 +6,7 @@ from keras.models import load_model
 import cv2
 import numpy as np
 import streamlit as st
+
 # Load your face mask detection model
 model = load_model("mask6_detector.model.h5",compile=False)
 
@@ -13,7 +14,7 @@ model = load_model("mask6_detector.model.h5",compile=False)
 IMG_SIZE = (224, 224)  # Assuming your model expects 224x224 input images
 
 def try_open_webcam(index=0):
-    cv2.VideoCapture(index + cv2.CAP_DSHOW)
+    cap=cv2.VideoCapture(index + cv2.CAP_DSHOW)
     if not cap.isOpened():
         st.warning("No webcam detected. Please upload an image instead.")
         return None
