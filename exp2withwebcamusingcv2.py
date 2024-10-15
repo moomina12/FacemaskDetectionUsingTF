@@ -8,39 +8,34 @@ import numpy as np
 import streamlit as st
 
 # Load your face mask detection model
-model = load_model("mask6_detector.model.h5",compile=False)
+model = load_model(r"C:\Users\HP\mask6_detector.model.h5",compile=False)
 
 # Optionally define image size as per your model's input size
 IMG_SIZE = (224, 224)  # Assuming your model expects 224x224 input images
 
-def try_open_webcam(index=0):
-    cap=cv2.VideoCapture(index)
-    if not cap.isOpened():
-        st.warning("No webcam detected. Please upload an image instead.")
-        return None
-    return cap
+cap = cv2.VideoCapture(0)
 
-st.title("Face Mask Detection App")
+st.title("Real-Time Face Mask Detection")
 
-use_camera = st.checkbox("Use webcam")
+if cap.isOpened():
+    ret, frame = cap.read()
+    if ret:
+        # Preprocess frame
+        frame_resized = cv2.resize(frame, IMG_SIZE)
+        frame_array = np.expand_dims(frame_resized, axis=0) / 255.0
 
-if use_camera:
-    cap = try_open_webcam()
-    if cap:
-        # Capture frame from webcam
-        ret, frame = cap.read()
-        if ret:
-            st.image(frame, channels="BGR", caption="Webcam Image")
+        # Run prediction
+        prediction = model.predict(frame_array)
+
+        if prediction[0][0] > 0.5:
+            label = "Mask"
         else:
-            st.error("Failed to capture image from webcam.")
-else:
-    uploaded_file = st.file_uploader("Upload an image", type=["jpg", "png", "jpeg"])
-    if uploaded_file is not None:
-        # Process the uploaded image
-        file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
-        image = cv2.imdecode(file_bytes, 1)
-        st.image(image, channels="BGR", caption="Uploaded Image")
+            label = "No Mask"
 
+        # Display frame with label
+        st.image(frame, channels="BGR", caption=f"Prediction: {label}")
+else:
+    st.error("Failed to open webcam.")
 
 
 # In[ ]:
