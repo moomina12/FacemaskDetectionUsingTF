@@ -40,7 +40,7 @@ else:
         image = cv2.imdecode(file_bytes, 1)
         st.image(image, channels="BGR", caption="Uploaded Image")
         # Run prediction
-    prediction = model.predict(image_array)
+    prediction = model.predict(image)
 
     # Determine the label
     if prediction[0][0] > 0.5:
