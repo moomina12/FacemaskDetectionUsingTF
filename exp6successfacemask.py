@@ -36,8 +36,10 @@ if uploaded_file is not None:
     # Determine the label
     if prediction[0][0] > 0.5:
         label = "Mask"
+        color = (0, 255, 0)
     else:
         label = "No mask"
+        color=(255, 0, 0)
     # Overlay the label on the image using OpenCV
     font = cv2.FONT_HERSHEY_SIMPLEX
     font_scale = 0.5
