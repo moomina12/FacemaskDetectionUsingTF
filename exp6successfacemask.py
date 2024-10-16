@@ -35,10 +35,10 @@ if uploaded_file is not None:
     prediction = model.predict(image_array)
     # Determine the label
     if prediction[0][0] > 0.5:
-        label = "The person wearning mask"
+        label = "Mask"
         color = (0, 255, 0)
     else:
-        label = "The pearson is not wearing mask"
+        label = "No mask"
         color=(255, 0, 0)
         #color = (0, 255, 0) if label == "The person wearning mask" else (255, 0, 0)
     # Overlay the label on the image using OpenCV
