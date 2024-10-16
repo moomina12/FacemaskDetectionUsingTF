@@ -16,12 +16,12 @@ import numpy as np
 from keras.models import load_model
 
 # Load your face mask detection model
-uploader = st.empty()
+
 model = load_model("mask6_detector.model.h5",compile = False)
 IMG_SIZE = (224, 224)  # Model input size
 
 st.title("Face Mask Detection App")
-
+uploader = st.empty()
 uploaded_file = st.file_uploader("Upload an image...", type=["jpg", "png", "jpeg"])
 
 if uploaded_file is not None:
