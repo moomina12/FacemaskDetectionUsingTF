@@ -78,11 +78,17 @@ if uploaded_file is not None:
     image = image.convert("RGB")  # Ensure it's RGB format
     image_np = np.array(image)  # Convert to NumPy array
         
-    # Perform face detection and mask prediction
-    (locs, preds) = detect_and_predict_mask(image_np, face_net, mask_model)
+# Run prediction
+prediction = model.predict(image_array)
 
-    # Display the processed image with predictions
-    st.image(image_np, caption='Uploaded Image with Predictions', channels='RGB')
+ # Determine the label
+if prediction[0][0] > 0.5:
+    label = "Mask"
+else:
+    label = "No Mask"
+
+ # Display the result
+st.image(image, channels="BGR", caption=f"Prediction: {label}")
 
 st.write("Stopped")
 
