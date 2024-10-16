@@ -69,7 +69,6 @@ def detect_and_predict_mask(frame, face_net, mask_model):
 
 # Streamlit UI
 st.title("Face Mask Detection with Face Detection")
-st.write("Turn on your camera and check if you're wearing a mask!")
 
 # Image upload functionality
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
@@ -81,20 +80,6 @@ if uploaded_file is not None:
         
     # Perform face detection and mask prediction
     (locs, preds) = detect_and_predict_mask(image_np, face_net, mask_model)
-        
-    # Loop over detected face locations and their corresponding predictions
-    for (box, pred) in zip(locs, preds):
-        (startX, startY, endX, endY) = box
-        (mask, without_mask) = pred
-            
-    # Determine the label and color for display
-    label = "Mask" if mask > without_mask else "No Mask"
-    color = (0, 255, 0) if label == "Mask" else (255, 0, 0)
-            
-    # Display label and confidence on the image
-    cv2.putText(image_np, f"{label}: {max(mask, without_mask) * 100:.2f}%", 
-                        (startX, startY - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.45, color, 2)
-    cv2.rectangle(image_np, (startX, startY), (endX, endY), color, 2)
 
     # Display the processed image with predictions
     st.image(image_np, caption='Uploaded Image with Predictions', channels='RGB')
