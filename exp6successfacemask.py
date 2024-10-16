@@ -79,14 +79,13 @@ if uploaded_file is not None:
     image_np = np.array(image)  # Convert to NumPy array
     # Run prediction
     prediction = mask_model.predict(image_np)
+    # Determine the label
+    if prediction[0][0] > 0.5:
+        label = "Mask"
+    else:
+        label = "No Mask"
 
- # Determine the label
-if prediction[0][0] > 0.5:
-    label = "Mask"
-else:
-    label = "No Mask"
-
- # Display the result
+# Display the result
 st.image(image, channels="BGR", caption=f"Prediction: {label}")
 
 st.write("Stopped")
