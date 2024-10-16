@@ -41,7 +41,7 @@ if uploaded_file is not None:
     else:
         label = "No mask"
         color=(255, 0, 0)
-    # Overlay the label on the image using OpenCV
+    # put label on the image using OpenCV
     font = cv2.FONT_HERSHEY_SIMPLEX
     font_scale = 0.5
     thickness = 2
