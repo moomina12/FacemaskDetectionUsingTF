@@ -36,15 +36,12 @@ if uploaded_file is not None:
     # Determine the label
     if prediction[0][0] > 0.5:
         label = "Mask"
-        color = (0, 255, 0)
     else:
         label = "No mask"
-        color=(255, 0, 0)
-        #color = (0, 255, 0) if label == "The person wearning mask" else (255, 0, 0)
     # Overlay the label on the image using OpenCV
     font = cv2.FONT_HERSHEY_SIMPLEX
-    font_scale = 1
-    thickness = 2
+    font_scale = 0.5
+    thickness = 1
     (text_width, text_height), baseline = cv2.getTextSize(label, font, font_scale, thickness)
 
     # Define position for the text (top-left corner with some padding)
