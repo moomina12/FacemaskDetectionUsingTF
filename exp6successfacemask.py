@@ -32,14 +32,14 @@ if uploaded_file is not None:
     image_resized = cv2.resize(image, IMG_SIZE)
     image_array = np.expand_dims(image_resized, axis=0) / 255.0
 
-    # Run prediction
-    prediction = model.predict(image_array)
-
     # Determine the label
     if prediction[0][0] > 0.5:
         label = "The person wearning mask"
+        color = (0, 255, 0)
     else:
         label = "The pearson is not wearing mask"
+        color=(255, 0, 0)
+        #color = (0, 255, 0) if label == "The person wearning mask" else (255, 0, 0)
 
     # Display the result
     st.image(image, channels="BGR", caption=f"Prediction: {label}")
