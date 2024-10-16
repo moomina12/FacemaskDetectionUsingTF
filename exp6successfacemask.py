@@ -25,7 +25,6 @@ st.title("Face Mask Detection App")
 uploaded_file = st.file_uploader("Upload an image...", type=["jpg", "png", "jpeg"])
 
 if uploaded_file is not None:
-    # Clear the uploader to remove the filename and close button
     # Convert the file to an OpenCV image
     file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
     image = cv2.imdecode(file_bytes, 1)
