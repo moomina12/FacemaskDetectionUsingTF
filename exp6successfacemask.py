@@ -57,7 +57,7 @@ if uploaded_file is not None:
                   (text_offset_x + text_width, text_offset_y + baseline), (0, 0, 0), thickness=cv2.FILLED)
 
     # Put the text (label) on the image
-    cv2.putText(image, label, (text_offset_x, text_offset_y), font, font_scale, color, thickness)
+    #cv2.putText(image, label, (text_offset_x, text_offset_y), font, font_scale, color, thickness)
 
     # Display the result
     st.image(image, channels="BGR", caption=f"Prediction: {label}")
