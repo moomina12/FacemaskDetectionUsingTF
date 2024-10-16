@@ -85,8 +85,8 @@ if uploaded_file is not None:
     else:
         label = "No Mask"
 
-# Display the result
-st.image(image, channels="BGR", caption=f"Prediction: {label}")
+    # Display the result
+    st.image(image, channels="BGR", caption=f"Prediction: {label}")
 
 st.write("Stopped")
 
