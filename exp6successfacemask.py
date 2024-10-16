@@ -37,9 +37,9 @@ if uploaded_file is not None:
 
     # Determine the label
     if prediction[0][0] > 0.5:
-        label = "Mask"
+        label = "The person wearning mask"
     else:
-        label = "No Mask"
+        label = "The pearson is not wearing mask"
 
     # Display the result
     st.image(image, channels="BGR", caption=f"Prediction: {label}")
