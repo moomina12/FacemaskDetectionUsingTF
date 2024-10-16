@@ -42,7 +42,7 @@ if uploaded_file is not None:
         color=(255, 0, 0)
     # Overlay the label on the image using OpenCV
     font = cv2.FONT_HERSHEY_SIMPLEX
-    font_scale = 1
+    font_scale = 0.5
     thickness = 2
     (text_width, text_height), baseline = cv2.getTextSize(label, font, font_scale, thickness)
 
@@ -51,7 +51,7 @@ if uploaded_file is not None:
     text_offset_y = text_height + 10
 
     # Draw a filled rectangle behind the text for better visibility
-    cv2.rectangle(image, (text_offset_x, text_offset_y - text_height - 5),
+    cv2.rectangle(image, (text_offset_x, text_offset_y - text_height - 10),
                   (text_offset_x + text_width, text_offset_y + baseline), (0, 0, 0), thickness=cv2.FILLED)
 
     # Put the text (label) on the image
