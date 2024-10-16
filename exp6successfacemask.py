@@ -76,7 +76,10 @@ if uploaded_file is not None:
     # Read and process the uploaded image
     image = Image.open(uploaded_file)
     image = image.convert("RGB")  # Ensure it's RGB format
-    image_np = np.array(image)  # Convert to NumPy array
+    # Resize and preprocess the image
+    IMG_SIZE = (224, 224)  # Model input size
+    image_resized = cv2.resize(image, IMG_SIZE)
+    image_array = np.expand_dims(image_resized, axis=0) / 255.0
     # Run prediction
     prediction = mask_model.predict(image_np)
     # Determine the label
