@@ -21,12 +21,11 @@ model = load_model("mask6_detector.model.h5",compile = False)
 IMG_SIZE = (224, 224)  # Model input size
 
 st.title("Face Mask Detection App")
-uploader = st.empty()
+
 uploaded_file = st.file_uploader("Upload an image...", type=["jpg", "png", "jpeg"])
 
 if uploaded_file is not None:
     # Clear the uploader to remove the filename and close button
-    uploader.empty()
     # Convert the file to an OpenCV image
     file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
     image = cv2.imdecode(file_bytes, 1)
