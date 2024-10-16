@@ -78,7 +78,7 @@ if uploaded_file is not None:
     image = image.convert("RGB")  # Ensure it's RGB format
     image_np = np.array(image)  # Convert to NumPy array
     # Run prediction
-prediction = mask_model.predict(image_np)
+    prediction = mask_model.predict(image_np)
 
  # Determine the label
 if prediction[0][0] > 0.5:
