@@ -79,7 +79,7 @@ if uploaded_file is not None:
     image_np = np.array(image)  # Convert to NumPy array
         
 # Run prediction
-prediction = model.predict(image_array)
+prediction = mask_model.predict(image_np)
 
  # Determine the label
 if prediction[0][0] > 0.5:
