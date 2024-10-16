@@ -58,11 +58,7 @@ if uploaded_file is not None:
     cv2.putText(image, label, (text_offset_x, text_offset_y), font, font_scale, color, thickness)
 
     # Display the result
-    st.image(image, channels="BGR", caption="Prediction with label overlay")
-
-    # Display the result
-    #st.image(image, channels="BGR", caption=f"Prediction: {label}")
-
+    st.image(image, channels="BGR", caption=f"Prediction: {label}")
 
 
 # In[ ]:
