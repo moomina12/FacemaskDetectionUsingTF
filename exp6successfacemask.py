@@ -51,7 +51,7 @@ if uploaded_file is not None:
     text_offset_y = text_height + 10
 
     # Draw a filled rectangle behind the text for better visibility
-    cv2.rectangle(image, (text_offset_x, text_offset_y - text_height - 10),
+    cv2.rectangle(image, (text_offset_x, text_offset_y - text_height - 5),
                   (text_offset_x + text_width, text_offset_y + baseline), (0, 0, 0), thickness=cv2.FILLED)
 
     # Put the text (label) on the image
