@@ -22,7 +22,7 @@ IMG_SIZE = (224, 224)  # Model input size
 
 st.title("Face Mask Detection App")
 
-uploaded_file = st.file_uploader("Upload an image...", type=["jpg", "png", "jpeg"])
+uploaded_file = st.file_uploader("Upload a closeup image...", type=["jpg", "png", "jpeg"])
 
 if uploaded_file is not None:
     # Convert the file to an OpenCV image
